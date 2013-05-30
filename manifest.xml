@@ -14,11 +14,7 @@
             
         </inputs>
         <requires-module>
-            <module optional="true" package="com.austindiviness.test" />
-            <module optional="true" package="com.andrew.wordprinter" />
-            <module optional="true" package="com.austindiviness.helloworld" />
-            <module optional="true" package="edu.mines.acmX.exhibit.frontend" />
-            <module optional="true" package="clueGame" />
+			<optional-all />
         </requires-module>
     </module>
 </manifest>
