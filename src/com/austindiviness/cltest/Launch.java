@@ -2,8 +2,8 @@ package com.austindiviness.cltest;
 
 import java.util.Scanner;
 
-import edu.mines.acmX.exhibit.module_manager.CommandlineModule;
-import edu.mines.acmX.exhibit.module_manager.ModuleManager;
+import edu.mines.acmX.exhibit.module_management.modules.CommandlineModule;
+import edu.mines.acmX.exhibit.module_management.ModuleManager;
 
 public class Launch extends CommandlineModule {
 	char choice;
