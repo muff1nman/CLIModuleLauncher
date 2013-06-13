@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest
     package="com.austindiviness.cltest"
-    class="Launch" >
+    class="Launch"
+	icon="icon.png"
+	title="Austin's CLI Launcher"
+	author="Austin Diviness"
+	version="1" >
+
     <uses-sdk
         minSdkVersion="0"
         targetSdkVersion="0" />
-    <module
-        icon="icon.png"
-        title="Austin's CLI Launcher"
-        author="Austin Diviness"
-        version="1" >
-        <inputs>
-            
-        </inputs>
-        <requires-module>
-			<optional-all />
-        </requires-module>
-    </module>
+	<inputs>
+	</inputs>
+
+	<requires-module>
+		<optional-all />
+	</requires-module>
 </manifest>
