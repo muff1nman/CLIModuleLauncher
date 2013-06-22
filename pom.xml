@@ -20,7 +20,7 @@
     <dependency>
       <artifactId>interfacesdk</artifactId>
       <groupId>edu.mines.acmX.exhibit</groupId>
-      <version>0.1.0</version>
+      <version>0.1.1</version>
     </dependency>
   </dependencies>
   <build>
