@@ -1,19 +1,16 @@
 package com.austindiviness.cltest;
 
-import java.util.Scanner;
+import java.rmi.RemoteException;
 
 import edu.mines.acmX.exhibit.module_management.modules.CommandlineModule;
-import edu.mines.acmX.exhibit.module_management.ModuleManager;
 
 public class Launch extends CommandlineModule {
 	char choice;
-	Scanner scanner;
 	boolean canRun = true;
 
 	public Launch() {
 		super();
 		choice = ' ';
-		scanner = new Scanner(System.in);
 	}
 
 
@@ -30,7 +27,9 @@ public class Launch extends CommandlineModule {
 					break;
 				case 'S':
 					setModule();
-					break;
+//					break;
+					throw new RuntimeException();
+
 				case 'R':
 					runModule();
 					break;
@@ -46,27 +45,27 @@ public class Launch extends CommandlineModule {
 		} catch (Exception e) {
 			System.out.println("PANIC! ABORTING!");
 			canRun = false;
+			throw new RuntimeException();
 		}
 
 	}
 
 	private void listModules() throws Exception {
-		ModuleManager manager = ModuleManager.getInstance();
-		String[] modules = manager.getAllAvailableModules();
+		String[] modules = getAllAvailableModules();
 		for(String name: modules) {
 			System.out.println(name);
 		}
 	}
 
 	private void setModule() throws Exception {
-		ModuleManager manager = ModuleManager.getInstance();
-		String[] modules = manager.getAllAvailableModules();
+		String[] modules = getAllAvailableModules();
 		for (int i = 0; i < modules.length; ++i) {
 			System.out.println(i + ". " + modules[i]);
 		}
-		int selection = scanner.nextInt();
+		
+		int selection = nextInt();
 		if (selection >= 0 && selection < modules.length) {
-			boolean wasSet = setNextModuleToLoad(modules[selection]);
+			boolean wasSet = setNextModule(modules[selection]);
 			if (wasSet) {
 				System.out.println("Module set!");
 			}
@@ -77,6 +76,7 @@ public class Launch extends CommandlineModule {
 		else {
 			System.out.println("Invalid Selection");
 		}
+		
 	}
 
 	private void runModule() throws Exception {
@@ -93,7 +93,7 @@ public class Launch extends CommandlineModule {
 		System.out.println("Q  Quit this module");
 	}
 
-	public void getChoice() {
-		choice = scanner.next().toUpperCase().charAt(0);
+	public void getChoice() throws RemoteException {
+		choice = next().toUpperCase().charAt(0);
 	}
 }
